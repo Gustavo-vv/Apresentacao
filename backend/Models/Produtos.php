@@ -75,7 +75,11 @@ class Produtos {
     $stmt->bindParam(':id_categoria', $id_categoria);
     $stmt->bindParam(':atualizado_em', $dataatual);
     $stmt->bindParam(':id', $id_produto);
-    return $stmt->execute();
+    if($stmt->execute()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   // Excluir (soft delete) produto

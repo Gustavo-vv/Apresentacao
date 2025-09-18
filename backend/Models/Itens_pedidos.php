@@ -63,7 +63,11 @@ class ItensPedidos {
     $stmt->bindParam(':preco_unitario', $preco_unitario);
     $stmt->bindParam(':atualizado_em', $dataatual);
     $stmt->bindParam(':id', $id_itens_pedidos);
-    return $stmt->execute();
+    if($stmt->execute()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   // Excluir (soft delete) item de pedido
